@@ -1,0 +1,402 @@
+body {
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%; /* Makes the body and html take up the full height of the viewport */
+    margin: 0;    /* Removes any default margin */
+    padding: 0;
+    background: radial-gradient(circle 300vh, rgba(40, 140, 255, 0.6), rgba(0, 0, 0, 0.9)); /* Your gradient or background */
+    background-size: contain; /* Ensures the background covers the entire screen */
+}
+
+.body {
+    position: relative;
+    
+    display: grid;
+    justify-content: center;
+    text-align: center;
+   
+}
+
+h1, h2, h3, p {
+    letter-spacing: 0.5px; /* Adjust to your liking */
+}
+
+.pickplay {
+    font-family: 'Press Start 2P', sans-serif; /* Modern and playful font */
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    letter-spacing: 2px;
+    padding: 20px;
+    animation: bounce 1s ease-in-out infinite; /* Fun bounce animation */
+    
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px); /* Makes it "bounce" */
+    }
+}
+
+
+/* Choices Display */
+    .matchup {
+        
+        display: flex;
+        font-family: 'VT323', monospace;
+        font-size: 17px;
+        width: 100%;
+        text-align:center;
+        justify-content: center;
+        position: relative;    
+        margin: 5vh 0vh 0vh 0vh;
+    }
+
+    .matchup h1, 
+    .matchup h3 {
+        top: 0;
+        margin: 0;
+    }
+
+    #playerChoiceDisplay {
+        flex: 2.5;
+    }
+
+    #computerChoiceDisplay {
+        flex: 2;
+    }
+
+    .p1 {
+        flex: 1;
+    }
+
+    .vs {
+        flex: 0;
+    }
+
+    .p2 {
+        flex: 1;
+    }
+/* Choices Display */
+
+/* Botones */
+
+    :root {
+        --push-size: 7.5rem; /* Based on your font-size */
+        --push-color: whitesmoke; /* Based on your background-color */
+    }
+
+    #choices button {
+        position: relative;
+        margin: 1vh;
+        padding: 2vh;
+        font-size: var(--push-size);
+        border-radius: 50%;
+        border: none;
+        background-color: var(--push-color);
+        cursor: pointer;
+        transition: box-shadow 200ms, transform 0.1s ease;
+    }
+
+    #choices button.push--flat {
+        box-shadow: 
+            inset 0 calc(var(--push-size) / 32) 0 rgba(255, 255, 255, 0.5),
+            inset 0 calc(-1 * var(--push-size) / 32) 0 rgba(0, 0, 0, 0.1),
+            inset 0 0 0 calc(var(--push-size) / 32) rgba(0, 0, 0, 0.1),
+            inset 0 0 0 calc(var(--push-size) / 12) var(--push-color),
+            inset 0 0 0 calc(var(--push-size) / 10) rgba(0, 0, 0, 0.2),
+            inset 0 0 0 calc(var(--push-size) / 9.2) rgba(0, 0, 0, 0.5),
+            inset 0 0 0 calc(var(--push-size) / 7.5) rgba(255, 255, 255, 0.3),
+            inset 0 calc(var(--push-size) / 2.5) calc(var(--push-size) / 7.5) rgba(0, 0, 0, 0.1),
+            inset 0 0 calc(var(--push-size) / 10) calc(var(--push-size) / 6) rgba(0, 0, 0, 0.15),
+            0 calc(var(--push-size) / 20) 0 rgba(0, 0, 0, 0.3);
+    }
+
+
+    #choices button.push--flat:active,
+    #choices button.push--flat.is-pushed {
+        box-shadow: 
+            inset 0 calc(var(--push-size) / 32) 0 rgba(255, 255, 255, 0.5),
+            inset 0 calc(-1 * var(--push-size) / 32) 0 rgba(0, 0, 0, 0.1),
+            inset 0 0 0 calc(var(--push-size) / 32) rgba(0, 0, 0, 0.1),
+            inset 0 0 0 calc(var(--push-size) / 12) var(--push-color),
+            inset 0 0 0 calc(var(--push-size) / 10) rgba(0, 0, 0, 0.2),
+            inset 0 0 0 calc(var(--push-size) / 8.5) rgba(0, 0, 0, 0.4),
+            inset 0 0 0 calc(var(--push-size) / 7.5) rgba(255, 255, 255, 0.8),
+            inset 0 0 0 calc(var(--push-size) / 5.5) rgba(0, 0, 0, 0.1),
+            inset 0 calc(var(--push-size) / 2.5) calc(var(--push-size) / 7.5) rgba(0, 0, 0, 0.15),
+            inset 0 0 calc(var(--push-size) / 10) calc(var(--push-size) / 6) rgba(0, 0, 0, 0.2),
+            0 calc(var(--push-size) / 20) 0 rgba(0, 0, 0, 0.3);
+        background-color: rgba(245, 245, 245, 0.781);
+    }
+
+/* Botones*/
+
+
+/* Match Result Display */
+    #resultDisplay {
+        font-family: 'Press Start 2P', sans-serif; /* Modern and playful font */
+        font-size: 3rem;
+    }
+
+    @keyframes neonGreenGlow {
+        0% { text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #060, 0 0 20px #060; }
+        50% { text-shadow: 0 0 10px #0f0, 0 0 15px #0f0, 0 0 20px #060, 0 0 25px #060; }
+        100% { text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #060, 0 0 20px #060; }
+    }
+
+    .neon-green {
+        font-family: 'VT323', monospace;
+        font-size: 50px;
+        color: green;
+        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #060, 0 0 20px #060;
+        animation: neonGreenGlow 1.5s infinite alternate, fadeIn 0.5s ease-in forwards;
+    }
+
+    @keyframes neonRedGlow {
+        0% { text-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 15px #900, 0 0 20px #900; }
+        50% { text-shadow: 0 0 10px #f00, 0 0 15px #f00, 0 0 20px #900, 0 0 25px #900; }
+        100% { text-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 15px #900, 0 0 20px #900; }
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .neon-red {
+        font-family: 'VT323', monospace;
+        font-size: 50px;
+        color: rgb(194, 0, 0);
+        text-shadow: 0 0 5px #900, 0 0 10px #900, 0 0 15px #900, 0 0 20px #900;
+        animation: neonRedGlow 1.5s infinite alternate, fadeIn 0.5s ease-in forwards;
+    }
+
+/* Match Result Display */
+
+/* Scoreboard */
+
+    .scoreboard {
+        background-color:rgb(26, 26, 26);
+        border-radius: 10px;
+        font-family: 'LED Dot-Matrix', sans-serif;
+        box-shadow: inset 0px 4px 6px darkgrey;
+    }
+
+    .scoreboardTitle {
+        margin: 5px;
+        color: white;
+    }
+
+    #scoreboardDisplay {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        overflow: visible; /* Allows content to overflow */   
+        color:red;
+        text-shadow: 0 0 4px #900;
+    }
+
+    #scoreboardDisplay h3{
+        margin: 0;
+        display: flex;
+        text-align:center;
+        justify-content: center;
+        border-radius: 5px;
+        font-size: 9rem;
+        background-color: black;
+        box-shadow: inset 5px 5px 35px rgb(29 29 29);
+        border: solid 1px white;
+    }
+
+    #computerScoreDisplay{
+        flex:1;
+        font-size: 50px; 
+    }
+
+    #playerScoreDisplay{
+        flex:1;
+        font-size: 50px;   
+    }
+
+    #tieScoreDisplay{
+        flex:1;
+        font-size: 50px;  
+    }
+
+    .scoreboardWLT {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        overflow: visible; /* Allows content to overflow */  
+    }
+
+    .scoreboardWLT h3{
+        flex:1;
+        margin: 5px;
+    }
+
+    .scbdPlayer {
+        color:lightgreen;
+    }
+
+    .scbdPC {
+        color: red;
+    }
+
+    .scbdTies {
+        color:lightblue;
+    }
+
+/*Scoreboard */
+
+/* Responsive CSS styles */
+
+/* Laptop L */
+@media (max-width: 1440px) {
+
+    :root {
+        --push-size: 7rem; /* Based on your font-size */
+    }
+
+}
+
+/* Laptop */
+@media (max-width: 1024px) {
+
+    :root {
+        --push-size: 6rem; /* Based on your font-size */
+    }
+
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+    :root {
+        --push-size: 5rem; /* Based on your font-size */
+    }
+
+    .pickplay {
+        font-size: 2rem;
+    }
+
+    #resultDisplay {
+        font-size: 2rem;
+    }
+
+    .matchup {
+        font-size: 0.8rem;
+    }
+
+    #playerChoiceDisplay {
+        font-size: 1.5rem;
+    }
+
+    #computerChoiceDisplay {
+        font-size: 1.5rem;
+    }
+
+    #scoreboardDisplay h3 {
+    font-size: 5rem;
+    }
+
+}
+
+/* Mobile L */
+@media (max-width: 470px) {
+    :root {
+        --push-size: 3rem; /* Based on your font-size */
+    }
+
+    .pickplay {
+        font-size: 1rem;
+    }
+
+    #resultDisplay {
+        font-size: 2rem;
+    }
+
+    .matchup {
+        font-size: 0.6rem;
+    }
+
+    #playerChoiceDisplay {
+        font-size: 1rem;
+    }
+
+    #computerChoiceDisplay {
+        font-size: 1rem;
+    }
+
+    #scoreboardDisplay h3 {
+    font-size: 3rem;
+    }
+}
+
+/* Mobile S */
+@media (max-width: 470px) {
+    :root {
+        --push-size: 2.4rem; /* Based on your font-size */
+    }
+
+    .pickplay {
+        font-size: 1rem;
+    }
+
+    #resultDisplay {
+        font-size: 1.5rem;
+        margin: 5vh 0vh 5vh 0vh;
+    }
+
+    .matchup {
+        font-size: 0.4rem;
+        margin: 5vh 0vh 5vh 0vh;
+    }
+
+    #playerChoiceDisplay {
+        font-size: 1rem;
+    }
+
+    #computerChoiceDisplay {
+        font-size: 1rem;
+    }
+
+    .scoreboard {
+        margin: 5vh 0vh 5vh 0vh;
+    }
+
+    #scoreboardDisplay h3 {
+    font-size: 2.5rem;
+    }
+}
+
+/* pruebas */
+
+.animation-container {
+    position: relative;
+    width: 300px;
+    height: 100px;
+}
+.emoji {
+    position: absolute;
+    font-size: 3rem;
+    top: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
+}
